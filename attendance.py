@@ -179,12 +179,9 @@ class attendance:
         self.button.place(x=138,y=700)
 
         self.button= Button(self.root, text='Export csv', width=10, bd=3, relief= RAISED, highlightthickness=0, cursor= 'hand2', bg='#EEF3FF', fg='#5c6274', font=('Times New Roman', 13,'bold'),command=self.exportCsv)
-        self.button.place(x=268,y=700)
+        self.button.place(x=330,y=700)
 
-        self.button= Button(self.root, text='Update', width=10, bd=3, relief= RAISED, highlightthickness=0, cursor= 'hand2', bg='#EEF3FF', fg='#5c6274', font=('Times New Roman', 13,'bold'))
-        self.button.place(x=398,y=700)
-
-        self.button= Button(self.root, text='Reset', width=10, bd=3, relief= RAISED, highlightthickness=0, cursor= 'hand2', bg='#EEF3FF', fg='#5c6274', font=('Times New Roman', 13,'bold'))
+        self.button= Button(self.root, text='Reset', width=10, bd=3, relief= RAISED, highlightthickness=0, cursor= 'hand2', bg='#EEF3FF', fg='#5c6274', font=('Times New Roman', 13,'bold'), command=self.reset_data)
         self.button.place(x=528,y=700)
 
 
@@ -211,12 +208,12 @@ class attendance:
             if len(mydata)<1:
                 messagebox.showerror("No Data","No data found to export",parent=self.root)
                 return False
-            fln=filedialog.askopenfilename(initialdir=os.getcwd(),title="Open CSV",filetypes=(("CSV File","*csv"),("All File","*.*")),parent=self.root)
+            fln=filedialog.askopenfilename(initialdir=os.getcwd(),title="Save CSV",filetypes=(("CSV File","*csv"),("All File","*.*")),parent=self.root)
             with open(fln,mode="w",newline="") as myfile:
                 exp_write=csv.writer(myfile,delimiter=",")
                 for r in mydata:
                     exp_write.writerow(r)
-                messagebox.showinfo("Dta Export","Your data exported to"+os.path.basename(fln)+"successfully",parent=self.root)
+                messagebox.showinfo("Data Export","Your data exported to"+os.path.basename(fln)+"successfully",parent=self.root)
         except:
                 messagebox.showerror('Error','Error!',parent=self.root)
 
@@ -231,6 +228,16 @@ class attendance:
         self.var_date.set(data[3]),
         self.var_time.set(data[4]),
         self.var_attendance.set(data[5])
+
+
+
+    def reset_data(self):
+        self.var_roll.set("")
+        self.var_name.set(""),
+        self.var_dept.set(""),
+        self.var_date.set(""),
+        self.var_time.set(""),
+        self.var_attendance.set("")
         
 
 if __name__ == '__main__':
