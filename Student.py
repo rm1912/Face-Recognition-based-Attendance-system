@@ -346,7 +346,7 @@ class Student:
         if self.var_name.get()=='' or self.var_dept.get()=='' or self.var_year.get()=='' or self.var_sem.get()=='' or self.var_sec.get()=='' or self.var_roll.get()=='' or self.var_email.get()=='' or self.var_no.get()=='' or self.var_gender.get()=='' or self.var_dob.get()=='':
             messagebox.showerror('Error','All fields are required', parent=self.root)
         else:
-            Update=messagebox.askyesno('Delete','Do you want to update this student details?')
+            Update=messagebox.askyesno('Update','Do you want to update this student details?', parent=self.root)
             if Update>0:
                 conn= sqlite3.connect("student.db")
                 cur= conn.cursor()  
@@ -380,7 +380,7 @@ class Student:
 
     
     def delete_data(self):
-        delete=messagebox.askyesno('Delete','Do you want to delete this student details?')
+        delete=messagebox.askyesno('Delete','Do you want to delete this student details?',parent=self.root)
         if delete>0:
             conn= sqlite3.connect("student.db")
             cur= conn.cursor()
