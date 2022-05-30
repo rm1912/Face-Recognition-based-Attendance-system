@@ -198,11 +198,7 @@ class Student:
         self.button.place(x=528,y=700)
 
         self.button= Button(self.root, text='Take Photo Sample', width=15, bd=1, relief= GROOVE, highlightthickness=0, cursor= 'hand2', bg='#EEF3FF', fg='#5c6274', font=('Times New Roman', 13,'bold'),command=self.generate_dataset)
-        self.button.place(x=200,y=760)
-
-        self.button= Button(self.root, text='Update Photo Sample', width=17, bd=1, relief= GROOVE, highlightthickness=0, cursor= 'hand2', bg='#EEF3FF', fg='#5c6274', font=('Times New Roman', 13,'bold'))
-        self.button.place(x=400,y=760)
-
+        self.button.place(x=300,y=760)
 
 
          #=========================Right Side========================
