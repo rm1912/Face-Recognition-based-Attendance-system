@@ -144,9 +144,8 @@ class LoginForm:
             if row==None:
                 messagebox.showerror("Error","Invalid Username or Password")
             else:
-                def Face_Recognition_system(self):
-                    self.new_window=Toplevel(self.root)
-                    self.app=Face_Recognition_system(self.new_window)
+                self.new_window=Toplevel(self.root)
+                self.app=Face_Recognition_system(self.new_window)
 
             conn.commit()
             conn.close()
