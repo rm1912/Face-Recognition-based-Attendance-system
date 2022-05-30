@@ -145,7 +145,7 @@ class attendance:
         self.scroll_x=ttk.Scrollbar(self.table_frame,orient=HORIZONTAL)
         self.scroll_y=ttk.Scrollbar(self.table_frame,orient=VERTICAL)
 
-        self.table=ttk.Treeview(self.table_frame,column=('Date','Time','Roll','Department','Name','Attendance'),xscrollcommand=self.scroll_x.set ,yscrollcommand=self.scroll_y.set)
+        self.table=ttk.Treeview(self.table_frame,column=('Roll','Name','Department','Date','Time','Attendance'),xscrollcommand=self.scroll_x.set ,yscrollcommand=self.scroll_y.set)
 
         self.scroll_x.pack(side=BOTTOM,fill=X)
         self.scroll_y.pack(side=RIGHT,fill=Y)
@@ -153,19 +153,19 @@ class attendance:
         self.scroll_y.config(command=self.table.yview)
 
 
+        self.table.heading('Roll',text="Roll")
+        self.table.heading('Name',text="Name")
+        self.table.heading('Department',text="Department")
         self.table.heading('Date',text="Date")
         self.table.heading('Time',text="Time")
-        self.table.heading('Roll',text="Roll")
-        self.table.heading('Department',text="Department")
-        self.table.heading('Name',text="Name")
         self.table.heading('Attendance',text="Attendance")
         self.table['show']='headings'
 
+        self.table.column('Roll',width=100)
+        self.table.column('Name',width=100)
+        self.table.column('Department',width=100)
         self.table.column('Date',width=100)
         self.table.column('Time',width=100)
-        self.table.column('Roll',width=100)
-        self.table.column('Department',width=100)
-        self.table.column('Name',width=100)
         self.table.column('Attendance',width=100)
         self.table.pack(fill=BOTH,expand=1)
 
@@ -225,19 +225,13 @@ class attendance:
         cursor_row=self.table.focus()
         content=self.table.item(cursor_row)
         data= content['values']
-        self.var_date.set(data[0]),
-        self.var_time.set(data[1]),
-        self.var_roll.set(data[2]),
-        self.var_dept.set(data[3]),
-        self.var_name.set(data[4]),
+        self.var_roll.set(data[0]),
+        self.var_name.set(data[1]),
+        self.var_dept.set(data[2]),
+        self.var_date.set(data[3]),
+        self.var_time.set(data[4]),
         self.var_attendance.set(data[5])
         
-
-
-
-
-
-
 
 if __name__ == '__main__':
     root = Tk()
